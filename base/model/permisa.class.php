@@ -1,6 +1,6 @@
 <?php
 require_once ('koncept.class.php');
-require_once ('relcija.class.php');
+require_once ('relacija.class.php');
 class permisa {
 	private $nadkoncept;
 	private $relacija;
