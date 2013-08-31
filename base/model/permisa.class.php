@@ -1,6 +1,7 @@
 <?php
 require_once ('koncept.class.php');
 require_once ('relacija.class.php');
+require_once ('pitanje.class.php');
 class permisa {
 	private $nadkoncept;
 	private $relacija;
@@ -42,4 +43,3 @@ class permisa {
 		return $this->nadkoncept . " " . $this->relacija . " " . $this->podkoncept;	
 	}
 }
-?>

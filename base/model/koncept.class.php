@@ -14,5 +14,3 @@ class Koncept {
 		return $this->naziv;	
 	}
 }
-
-?>

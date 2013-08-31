@@ -14,31 +14,50 @@ function generateConceptArray ($concepts, $seed = 3) {
 }
 
 
-function generateRelatedPremisesSub ($premises, $concept, &$related_premises = array (), $depth = 3) {
+function generateRelatedPremises ($premises, $concept, &$related_premises = array (), $depth = 3, $seed = 2) {
 	if ($depth == 0) return;
-	$depth-=1;
-	foreach ($premises as $premise) {
+	foreach ($premises as $key => $premise) {
+		$related_premises[] = $premise;
+		$podkoncept = $premise->PostojiSub ($concept);
+		$nadkoncept = $premise->PostojiSup ($concept);
+		if ($podkoncept) {
+			generateRelatedPremisesSub ($premises, $podkoncept, $related_premises, $depth);	
+			//generateRelatedPremisesSup ($premises, $podkoncept, $related_premises, $depth);
+		}
+		if ($nadkoncept) {
+			//generateRelatedPremisesSub ($premises, $nadkoncept, $related_premises, $depth);
+			generateRelatedPremisesSup ($premises, $nadkoncept, $related_premises, $depth);
+		}	
+	}
+}
+
+function generateRelatedPremisesSub (&$premises, $concept, &$related_premises = array (), $depth = 3) {
+	if ($depth == 0) return;
+	foreach ($premises as $key => $premise) {
 		$podkoncept = $premise->PostojiSub ($concept);
 		if ($podkoncept) {
 			$related_premises[] = $premise;
-			generateRelatedPremisesSub ($premises, $podkoncept, $related_premises, $depth);	
+			unset ($premises[$key]);
+			generateRelatedPremisesSub ($premises, $podkoncept, $related_premises, $depth-1);	
 		}
 	}
 }
 
-function generateRelatedPremisesSup ($premises, $concept, &$related_premises = array (), $depth = 3) {
+function generateRelatedPremisesSup (&$premises, $concept, &$related_premises = array (), $depth = 3) {
 	if ($depth == 0) return;
-	$depth-=1;
-	foreach ($premises as $premise) {
+	foreach ($premises as $key => $premise) {
 		$nadkoncept = $premise->PostojiSup ($concept);
+		
 		if ($nadkoncept) {
 			$related_premises[] = $premise;
-			generateRelatedPremisesSup ($premises, $nadkoncept, $related_premises, $depth);	
+			unset ($premises[$key]);
+			generateRelatedPremisesSup ($premises, $nadkoncept, $related_premises, $depth-1);	
 		}
 	}
 }
 
 function generateQuestion ($premises, $case = "simple") {
+	if (count ($premises) == 0) return;
 	switch ($case) {
 		case 'simple':
 			$type = array ('relation', 'concept');
@@ -77,7 +96,7 @@ function generateQuestion ($premises, $case = "simple") {
 					}
 					break;
 			}
-			return array ('question' => $question, 'answer' => $answer, 'answers' => $answers);
+			return new pitanje ($question, $answer, $answers);
 		case 'complex':
 		case 'brutal':
 			break;
