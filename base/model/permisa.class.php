@@ -18,5 +18,24 @@ class permisa {
 		if ($podkoncept == NULL) $this->podkoncept = $podkoncept;
 		return $this->podkoncept;
 	}
+	
+	public function Postoji ($koncept) {
+		if ($this->nadkoncept->Naziv () == $koncept->Naziv () || $this->podkoncept->Naziv () == $koncept->Naziv ()) return true;
+		return false;
+	}
+	
+	public function PostojiSub ($koncept) {
+		if ($this->nadkoncept->Naziv () == $koncept->Naziv ()) return $this->podkoncept;
+		return false;
+	}
+	
+	public function PostojiSup ($koncept) {
+		if ($this->podkoncept->Naziv () == $koncept->Naziv ()) return $this->nadkoncept;
+		return false;
+	}
+	
+	public function __toString () {
+		return $this->nadkoncept . " " . $this->relacija . " " . $this->podkoncept;	
+	}
 }
 ?>

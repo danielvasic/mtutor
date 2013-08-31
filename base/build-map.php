@@ -1,3 +1,4 @@
+<meta charset='utf-8'>
 <?php
 require_once ("model/permisa.class.php");
 /**
@@ -196,6 +197,3 @@ $permise[] = new permisa($koncepti[81], $relacije[0], $koncepti[74]);
 $permise[] = new permisa($koncepti[81], $relacije[0], $koncepti[75]);
 $permise[] = new permisa($koncepti[81], $relacije[0], $koncepti[76]);
 
-
-var_dump ($permise);
-/*Primjer pitanja : Koji Logički sklop izvršava Logička operacija Disjunkcija -> Ili sklop */

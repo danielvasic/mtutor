@@ -9,6 +9,10 @@ class Koncept {
 		if ($value == "") return $this->naziv;
 		$this->naziv = $value;	
 	}
+	
+	public function __toString () {
+		return $this->naziv;	
+	}
 }
 
 ?>
