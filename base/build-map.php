@@ -51,6 +51,12 @@ $koncepti[] = new Koncept ("Upravljačka jedinica");
 $koncepti[] = new Koncept ("Disjunkcija");
 $koncepti[] = new Koncept ("Konjukcija");
 $koncepti[] = new Koncept ("Negacija");
+$koncepti[] = new Koncept ("Logički sklop");
+$koncepti[] = new Koncept ("Ili sklop");
+$koncepti[] = new Koncept ("Ni sklop");
+$koncepti[] = new Koncept ("Nili sklop");
+$koncepti[] = new Koncept ("Ne sklop");
+$koncepti[] = new Koncept ("I sklop");
 
 
 
