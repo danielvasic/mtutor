@@ -11,12 +11,16 @@ class permisa {
 		$this->podkoncept = $podkoncept;	
 	}
 	public function Nadkoncept ($nadkoncept = NULL) {
-		if ($nadkoncept == NULL) $this->nadkoncept = $nadkoncept;
+		if ($nadkoncept != NULL) $this->nadkoncept = $nadkoncept;
 		return $this->nadkoncept;
 	}
 	public function Podkoncept ($podkoncept = NULL) {
-		if ($podkoncept == NULL) $this->podkoncept = $podkoncept;
+		if ($podkoncept != NULL) $this->podkoncept = $podkoncept;
 		return $this->podkoncept;
+	}
+	public function Relacija ($relacija = NULL) {
+		if ($relacija != NULL) $this->relacija = $relacija;
+		return $this->relacija;
 	}
 	
 	public function Postoji ($koncept) {

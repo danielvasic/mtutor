@@ -38,7 +38,49 @@ function generateRelatedPremisesSup ($premises, $concept, &$related_premises = a
 	}
 }
 
-function generateQuestion ($premises) {
-	
+function generateQuestion ($premises, $case = "simple") {
+	switch ($case) {
+		case 'simple':
+			$type = array ('relation', 'concept');
+			$rnd_type = $type[rand(0,1)];
+			switch ($rnd_type) {
+				case 'relation':
+					$rnd_premise = $premises[rand (0, count ($premises)-1)];
+					$question = $rnd_premise->Nadkoncept() . " __________ " . $rnd_premise->Podkoncept();
+					$answer = $rnd_premise->Relacija();
+					$answers = 'relations';
+				break;
+				case 'concept':
+					$rnd_premise = $premises[rand (0, count ($premises)-1)];
+					$r_type = array ('sub', 'sup');
+					switch ($r_type[rand(0,1)]){
+						case 'sub':
+							$question = "__________ " . $rnd_premise->Relacija() . " " . $rnd_premise->Podkoncept();
+							$answer = $rnd_premise->Nadkoncept();
+							$answers = array ();
+							foreach ($premises as $premise) {
+								if (!in_array ($premise->Nadkoncept()->Naziv(), $answers) ) {
+									$answers[] = $premise->Nadkoncept();	
+								}
+							}
+							break;
+						case 'sup':
+							$question = $rnd_premise->Nadkoncept() ." " . $rnd_premise->Relacija() . " __________.";
+							$answer = $rnd_premise->Podkoncept();
+							$answers = array ();
+							foreach ($premises as $premise) {
+								if (!in_array ($premise->Podkoncept()->Naziv(), $answers) ) {
+									$answers[] = $premise->Podkoncept();	
+								}
+							}
+							break;	
+					}
+					break;
+			}
+			return array ('question' => $question, 'answer' => $answer, 'answers' => $answers);
+		case 'complex':
+		case 'brutal':
+			break;
+	}
 }
 ?>
