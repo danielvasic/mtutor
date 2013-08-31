@@ -25,3 +25,35 @@ $koncepti[] = new Koncept ("Prikaz podataka");
 $koncepti[] = new Koncept ("Upravljanje podataka");
 $koncepti[] = new Koncept ("Pohrana podataka");
 $koncepti[] = new Koncept ("Unos podataka");
+$koncepti[] = new Koncept ("Model računalnog sustava");
+$koncepti[] = new Koncept ("Ulazna jedinica");
+$koncepti[] = new Koncept ("Izlazna jedinica");
+$koncepti[] = new Koncept ("Tipkovnica");
+$koncepti[] = new Koncept ("Miš");
+$koncepti[] = new Koncept ("Monitor");
+$koncepti[] = new Koncept ("Štampač");
+$koncepti[] = new Koncept ("Centralna jedinica");
+$koncepti[] = new Koncept ("Računalo");
+$koncepti[] = new Koncept ("Centralna procesorska jedinica");
+$koncepti[] = new Koncept ("Upravljačka jedinica");
+$koncepti[] = new Koncept ("Centralna procesorska jedinica");
+$koncepti[] = new Koncept ("Instrukcija");
+$koncepti[] = new Koncept ("Podatak");
+$koncepti[] = new Koncept ("Operacija");
+$koncepti[] = new Koncept ("Informacija");
+$koncepti[] = new Koncept ("Značenje");
+$koncepti[] = new Koncept ("Aritmetička operacija");
+$koncepti[] = new Koncept ("Zbrajanje");
+$koncepti[] = new Koncept ("Oduzimanje");
+$koncepti[] = new Koncept ("Upravljačka jedinica");
+$koncepti[] = new Koncept ("Logička operacija");
+$koncepti[] = new Koncept ("Upravljačka jedinica");
+$koncepti[] = new Koncept ("Disjunkcija");
+$koncepti[] = new Koncept ("Konjukcija");
+$koncepti[] = new Koncept ("Negacija");
+
+
+
+
+
+/*Primjer pitanja : Koji Logički sklop izvršava Logička operacija Disjunkcija -> Ili sklop */
